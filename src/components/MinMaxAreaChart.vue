@@ -5,23 +5,20 @@
 </template>
 
 <script>
-import { Chart } from "chart.js/auto";
+import { Chart } from "chart.js";
+import zoomPlugin from "chartjs-plugin-zoom";
+
+Chart.register(zoomPlugin);
 
 export default {
   name: "MinMaxAreaChart",
   props: {
-    data: {
-      type: Object,
-      required: true,
-    },
+    data: Object,
   },
   computed: {
     chartData() {
       if (!this.data || !this.data.minMaxData) {
-        return {
-          labels: [],
-          datasets: [],
-        };
+        return { labels: [], datasets: [] };
       }
 
       const labels = Object.keys(this.data.minMaxData);
@@ -71,8 +68,28 @@ export default {
       options: {
         responsive: true,
         plugins: {
-          legend: {
-            display: true,
+          tooltip: {
+            enabled: true,
+          },
+          zoom: {
+            pan: {
+              enabled: true,
+              mode: "x",
+            },
+            zoom: {
+              wheel: {
+                enabled: true,
+              },
+              mode: "x",
+            },
+          },
+        },
+        scales: {
+          x: {
+            type: "category",
+          },
+          y: {
+            beginAtZero: true,
           },
         },
       },

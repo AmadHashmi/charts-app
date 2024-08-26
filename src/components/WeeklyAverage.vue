@@ -1,37 +1,19 @@
 <template>
   <div class="chart-container">
-    <canvas ref="weeklyAverageChart"></canvas>
+    <canvas ref="chartCanvas"></canvas>
   </div>
 </template>
 
 <script>
-import { Chart } from "chart.js/auto";
-import {
-  Chart as ChartJS,
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale,
-} from "chart.js";
+import { Chart } from "chart.js";
+import zoomPlugin from "chartjs-plugin-zoom";
 
-ChartJS.register(
-  Title,
-  Tooltip,
-  Legend,
-  BarElement,
-  CategoryScale,
-  LinearScale
-);
+Chart.register(zoomPlugin);
 
 export default {
   name: "WeeklyAverageChart",
   props: {
-    data: {
-      type: Array,
-      required: true,
-    },
+    data: Array,
   },
   computed: {
     chartData() {
@@ -48,14 +30,34 @@ export default {
     },
   },
   mounted() {
-    new Chart(this.$refs.weeklyAverageChart, {
+    new Chart(this.$refs.chartCanvas, {
       type: "bar",
       data: this.chartData,
       options: {
         responsive: true,
         plugins: {
-          legend: {
-            display: true,
+          tooltip: {
+            enabled: true,
+          },
+          zoom: {
+            pan: {
+              enabled: true,
+              mode: "x",
+            },
+            zoom: {
+              wheel: {
+                enabled: true,
+              },
+              mode: "x",
+            },
+          },
+        },
+        scales: {
+          x: {
+            type: "category",
+          },
+          y: {
+            beginAtZero: true,
           },
         },
       },

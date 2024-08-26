@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_KEY = "your-api-key";
-const BASE_URL = "https://www.alphavantage.co";
+const BASE_URL = "https://www.alphavantage.co/query";
 
 const generateDummyData = () => {
   const data = {};
