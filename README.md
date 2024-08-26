@@ -48,7 +48,26 @@ The charts and the overall layout are designed to be responsive, ensuring a seam
 ### 3. How to Run the Project
 
 1. **Clone the Repository**:
+
    ```bash
    git clone https://github.com/your-username/timeseries-charts-app.git
    cd timeseries-charts-app
+   ```
+
+2. **Install Dependencies**:
+
+   ```bash
+   npm install
+   ```
+
+3. **Run the Development Server**:
+   ```bash
+   npm run serve
+   ```
+
+The application will be accessible at http://localhost:8080.
+
+4. **Build for Production**:
+   ```bash
+   npm run build
    ```
