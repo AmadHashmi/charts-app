@@ -4,11 +4,18 @@
 
     <div v-if="chartData">
       <MinMaxAreaChart :data="chartData" />
+
+      <WeeklyAverageChart
+        v-if="chartData.weeklyAverages && chartData.weeklyAverages.length > 0"
+        :data="chartData.weeklyAverages"
+      />
+
+      <MonthlyChart
+        v-if="chartData.monthlyAverages && chartData.monthlyAverages.length > 0"
+        :data="chartData.monthlyAverages"
+      />
     </div>
-    <MonthlyChart
-      v-if="chartData.monthlyAverages && chartData.monthlyAverages.length > 0"
-      :data="chartData.monthlyAverages"
-    />
+
     <div v-else>
       <p>Loading data, please wait...</p>
     </div>
@@ -17,6 +24,7 @@
 
 <script>
 import MinMaxAreaChart from "./components/MinMaxAreaChart.vue";
+import WeeklyAverageChart from "./components/WeeklyAverage.vue";
 import MonthlyChart from "./components/MonthlyAverage.vue";
 import { fetchData } from "./services/apiService";
 import { transformData } from "./utils/transformData";
@@ -25,6 +33,7 @@ export default {
   name: "App",
   components: {
     MinMaxAreaChart,
+    WeeklyAverageChart,
     MonthlyChart,
   },
   data() {
