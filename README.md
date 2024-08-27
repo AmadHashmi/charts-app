@@ -59,10 +59,10 @@ This project includes a Dockerfile that allows you to build and run the applicat
    docker build -t charts-app .
    ```
 
-## Running the Docker Container
+### Running the Docker Container
 
-After building the image, you can run the container:
+1. running the image
 
-      ```bash
-      docker run -d -p 8080:80 my-vue-app
-      ```
+   ```bash
+   docker run -d -p 8080:80 c
+   ```
