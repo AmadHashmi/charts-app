@@ -16,6 +16,10 @@ export default {
     data: Array,
   },
   computed: {
+    /**
+     * Prepares chart data for rendering.
+     * @returns {Object} - The structured data for Chart.js.
+     */
     chartData() {
       return {
         labels: this.data.map((entry) => entry.week),

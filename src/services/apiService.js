@@ -25,7 +25,10 @@ const generateDummyData = () => {
   console.log("Using generated dummy data:", data);
   return data;
 };
-
+/**
+ * Fetches raw time series data from the API and transforms it.
+ * @returns {Object|null} - The transformed data or null if the fetch fails.
+ */
 export const fetchData = async () => {
   try {
     const response = await axios.get(BASE_URL, {

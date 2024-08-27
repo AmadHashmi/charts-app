@@ -16,6 +16,10 @@ export default {
     data: Object,
   },
   computed: {
+    /**
+     * Prepares chart data for rendering.
+     * @returns {Object} - The structured data for Chart.js.
+     */
     chartData() {
       if (!this.data || !this.data.minMaxData) {
         return { labels: [], datasets: [] };

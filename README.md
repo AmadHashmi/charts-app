@@ -45,3 +45,24 @@ The application will be accessible at http://localhost:8080.
    ```bash
    npm run build
    ```
+
+## Running the Vue.js App with Docker
+
+This project includes a Dockerfile that allows you to build and run the application inside a Docker container.
+
+### Building the Docker Image
+
+1. Open a terminal and navigate to the root directory of the project.
+2. Build the Docker image:
+
+   ```bash
+   docker build -t charts-app .
+   ```
+
+## Running the Docker Container
+
+After building the image, you can run the container:
+
+      ```bash
+      docker run -d -p 8080:80 my-vue-app
+      ```
